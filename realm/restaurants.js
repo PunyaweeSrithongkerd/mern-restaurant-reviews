@@ -4,7 +4,7 @@ exports = async function(payload, response) {
 
   let query = {};
   if (payload.query.cuisine) {
-    query = { $text: { $search: payload.query.cuisine } }
+    query = { "cuisine": { $search: payload.query.cuisine } }
   } else if (payload.query.zipcode) {
     query = { "address.zipcode": { $eq: payload.query.zipcode } }
   } else if (payload.query.name) {
